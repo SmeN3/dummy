@@ -22,6 +22,11 @@ def speed_of_text():
     word = words.pop(0)
     label.config(text=word)
     root.after(150, speed_of_text)
+h = Scrollbar(root, orient='horizontal')
+h.pack(side=BOTTOM,
+              fill=X)
+v = Scrollbar(root)
+v.pack(side=RIGHT, fill=Y)
 
 
 l = Label(text="set the directory for the text file")
@@ -31,7 +36,9 @@ inputtxt = Text(root, height=1,
 
 Output = Text(root, height=40,
               width=200,
-              bg="light cyan")
+              bg="light cyan",
+              xscrollcommand=h.set,
+              yscrollcommand=v.set)
 
 Display = Button(root, height=2,
                  width=20,
