@@ -10,21 +10,28 @@ def Take_input():
     print(INPUT)
     if os.path.isfile(str(INPUT)) and INPUT.endswith('.txt'):
         f = open(INPUT, 'r')
+        answer = f.read().split()
         Output.insert(END, f.read())
     else:
         Output.insert(END, "Wrong directory")
+    return answer
 
 
-def speed_of_text():
-    INPUT = inputtxt.get("1.0", "end-1c")
-    f = open(INPUT, 'r')
-    words = f.read().split()
-    word = words.pop(0)
-    label.config(text=word)
-    root.after(150, speed_of_text)
+def speed_of_text(words):
+
+    if words:
+        word = list(words).pop(0)
+        label.config(text=word)
+        root.after(150, speed_of_text(words))
+    else:
+        print('All words typed')
+        root.after_cancel(speed_of_text)
+
 h = Scrollbar(root, orient='horizontal')
-h.pack(side=BOTTOM,
-              fill=X)
+h.pack(
+    side=BOTTOM,
+    fill=X,
+)
 v = Scrollbar(root)
 v.pack(side=RIGHT, fill=Y)
 
@@ -51,7 +58,7 @@ label = Label(root, text="", height=10, width= 10,
 Start = Button(root, height=2,
                width=20,
                text='Start',
-               command=lambda: root.after(150, speed_of_text),
+               command=lambda: speed_of_text(Take_input),
 
                )
 
