@@ -1,2 +1,1 @@
-print('hi there')
-print('hi')
+print('hi ther')
