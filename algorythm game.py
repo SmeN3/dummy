@@ -36,12 +36,14 @@ else:
     if num_1 > num_2:
         for i in range(num_2, num_1+1, 2):
             value += i
+            print(i)
     elif num_2 > num_1:
         for i in range(num_1, num_2+1, 2):
             value += i
+            print(i)
     else:
         for i in range(num_1+1, 2):
-            value += 2
+            value += i
 print('suma=', value)
 print(dziesietny_do_binarnego(value))
 
