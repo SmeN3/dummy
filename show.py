@@ -14,16 +14,14 @@ def Take_input():
     else:
         Output.insert(END, "Wrong directory")
 
+
+def speed_of_text():
+    INPUT = inputtxt.get("1.0", "end-1c")
+    f = open(INPUT, 'r')
     words = f.read().split()
-    if words:
-        word = words.pop(0)
-        label.config(text=word)
-        root.after(150, Take_input())
-    else:
-        print('All words typed')
-        root.after_cancel(Take_input())
-
-
+    word = words.pop(0)
+    label.config(text=word)
+    root.after(150, speed_of_text)
 
 
 l = Label(text="set the directory for the text file")
@@ -38,19 +36,23 @@ Output = Text(root, height=40,
 Display = Button(root, height=2,
                  width=20,
                  text="Show",
-                 command=lambda: Take_input()
-                 )
+                 command=lambda: Take_input())
 
-label = Label(root, text="")
+label = Label(root, text="", height=10, width= 10,
+              font=('Helvetica bold', 26))
 
-root.after(150, speed_of_text)
+Start = Button(root, height=2,
+               width=20,
+               text='Start',
+               command=lambda: root.after(150, speed_of_text),
+
+               )
 
 
-label.pack()
 l.pack()
 inputtxt.pack()
 Display.pack()
 Output.pack()
-
+Start.pack()
+label.pack()
 mainloop()
-
