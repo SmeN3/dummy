@@ -2,7 +2,7 @@ from tkinter import *
 import os
 root = Tk()
 
-root.title(" Q&A ")
+root.title("Show")
 
 
 def Take_input():
@@ -12,16 +12,16 @@ def Take_input():
         f = open(INPUT, 'r')
         Output.insert(END, f.read())
     else:
-        Output.insert(END, "Wrong answer")
+        Output.insert(END, "Wrong directory")
 
 
-l = Label(text="What is 24 * 5 ? ")
-inputtxt = Text(root, height=10,
-                width=25,
+l = Label(text="set the directory for the text file")
+inputtxt = Text(root, height=1,
+                width=200,
                 bg="light yellow")
 
-Output = Text(root, height=5,
-              width=25,
+Output = Text(root, height=40,
+              width=200,
               bg="light cyan")
 
 Display = Button(root, height=2,
