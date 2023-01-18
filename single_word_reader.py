@@ -22,7 +22,7 @@ def speed_of_words():
         label_txt.set(word)
         root.update_idletasks()
         label.config(text=word)
-        sleep(0.3)
+        sleep(0.15)
         print(word)
     print('All words typed')
 
@@ -36,7 +36,7 @@ v = Scrollbar(root)
 v.pack(side=RIGHT, fill=Y)
 
 
-lab = Label(text="set the directory for the text file")
+lab = Label(text="set the directory for the text file or paste the txt to the blue window")
 inputtxt = Text(root, height=1,
                 width=200,
                 bg="light yellow")
