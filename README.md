@@ -1,2 +1,1 @@
-# dummy wassup
-# hi
+the show.py contains a tkinter library project that will help the user to train theirs reading speed.
