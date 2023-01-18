@@ -22,7 +22,7 @@ def speed_of_words():
         label_txt.set(word)
         root.update_idletasks()
         label.config(text=word)
-        sleep(0.15)
+        sleep(0.3)
         print(word)
     print('All words typed')
 
@@ -55,8 +55,8 @@ Display = Button(root, height=2,
 label_txt = StringVar()
 
 label = Label(root,
-              height=1,
-              width=10,
+              height=4,
+              width=20,
               textvariable=label_txt,
               font=('Helvetica bold', 26),
               bg="pink"
