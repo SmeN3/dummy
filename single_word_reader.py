@@ -16,7 +16,7 @@ def take_input():
 
 
 def speed_of_words():
-    words = Output.get("1.0", "end-1c").replace('/n', ' ').split(' ')
+    words = Output.get("1.0", "end-1c").replace('\n', ' ').replace('.', '').replace(',', '').split(' ')
     while words:
         word = words.pop(0)
         label_txt.set(word)
