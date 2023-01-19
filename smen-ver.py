@@ -13,12 +13,12 @@ def get_input_file_content():
     try:
         if os.path.isfile(input_file_path) and input_file_path.endswith('.txt'):
             with open(input_file_path, 'r') as file:
-                words = file.read().split()
-                output_txt.insert(tk.END, ' '.join(words))
-                output_txt.see(tk.END)  # scroll to the end of the text widget
-                output_txt.config(state='disabled')  # make the text widget readonly
+                words = file.read()
+            output_txt.insert(tk.END, words)
+            output_txt.see(tk.END)  # scroll to the end of the text widget
+            output_txt.config(state='disabled')  # make the text widget readonly
         else:
-            raise ValueError("Error: Invalid file path or file format")
+            raise ValueError("Error: Invalid file path or file extension")
     except Exception as e:
         output_txt.insert(tk.END, str(e))
     return words
@@ -67,7 +67,7 @@ start_btn = tk.Button(root,
                       height=2,
                       width=20,
                       text='Start',
-                      command=lambda: type_words(get_input_file_content()),
+                      command=lambda: type_words(get_input_file_content().split(' ')),
                       )
 
 # Pack the widgets
